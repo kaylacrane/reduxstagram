@@ -6,6 +6,10 @@ import comments from "./comments";
 
 //we can only technically have one reducer so we have to put everything into a rootreducer
 
-const rootReducer = combineReducers({ posts, comments, router: routerReducer });
+const rootReducer = combineReducers({
+  posts,
+  comments,
+  routing: routerReducer,
+});
 
 export default rootReducer;
