@@ -9,8 +9,8 @@ import rootReducer from "./reducers/index";
 import comments from "./data/comments";
 import posts from "./data/posts";
 
-//create object for default data
-const defaultState = { posts, data };
+//create object for default data. we will have to create a reducer for each piece of state (in this case 2: posts & comments)
+const defaultState = { posts, comments };
 
 const store = createStore(rootReducer, defaultState);
 
