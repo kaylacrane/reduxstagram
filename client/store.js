@@ -12,7 +12,11 @@ import posts from "./data/posts";
 //create object for default data. we will have to create a reducer for each piece of state (in this case 2: posts & comments)
 const defaultState = { posts, comments };
 
-const store = createStore(rootReducer, defaultState);
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : (f) => f
+);
+
+const store = createStore(rootReducer, defaultState, enhancers);
 
 //save router/browser history in store
 export const history = syncHistoryWithStore(browserHistory, store);
