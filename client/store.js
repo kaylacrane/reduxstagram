@@ -17,4 +17,12 @@ const store = createStore(rootReducer, defaultState);
 //save router/browser history in store
 export const history = syncHistoryWithStore(browserHistory, store);
 
+/*in order to be able to hot load reducers */
+if (module.hot) {
+  module.hot.accept("./reducers", () => {
+    const nextRootReducer = require("./reducers/index").default;
+    store.replaceReducer(nextRootReducer);
+  });
+}
+
 export default store;
